@@ -30,7 +30,7 @@ public:
      * @param numVertices Количество вершин
      * @throws std::invalid_argument Если количество вершин меньше 3
      */
-    Polygon(const unsigned int* coords, const size_t numVertices);
+    Polygon(const int* coords, const size_t numVertices);
 
     /**
      * @brief Преобразует многоугольник в строку
