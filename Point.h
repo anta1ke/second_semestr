@@ -11,11 +11,11 @@ private:
     /**
      * @brief x - Абсцисса
      */
-    unsigned int x;
+     int x;
     /**
      * @brief y - Ордината
      */
-    unsigned int y;
+     int y;
 
 public:
     /**
@@ -34,12 +34,12 @@ public:
     /**
      * @brief Геттер для x
      */
-    unsigned int GetX() const;
+     int GetX() const;
 
     /**
      * @brief Геттер для y
      */
-    unsigned int GetY() const;
+     int GetY() const;
 
     /**
      * @brief Перегрузка оператора вывода
