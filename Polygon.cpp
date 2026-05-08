@@ -9,7 +9,7 @@ Polygon::Polygon(const std::vector<Point>& vertices)
         throw std::invalid_argument("Polygon must have at least 3 vertices.");
 }
 
-Polygon::Polygon(const unsigned int* coords, const size_t numVertices)
+Polygon::Polygon(const int* coords, const size_t numVertices)
 {
     if (numVertices < 3)
         throw std::invalid_argument("Polygon must have at least 3 vertices.");
