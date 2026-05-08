@@ -1,13 +1,21 @@
 #include <iostream>
+#include "Point.h"
 #include "Triangle.h"
 
 /**
- * @brief Считывает координату точки с клавиатуры
+ * @brief Считывает координату с клавиатуры
  * @param reports - строка информации
  * @return считанное значение
  * @note При ошибке ввода программа завершается
  */
-double getCoordinate(const std::string reports = "");
+double getCoordinate(const std::string& reports);
+
+/**
+ * @brief Считывает точку с клавиатуры
+ * @param name - название точки
+ * @return считанная точка
+ */
+Point readPoint(const std::string& name);
 
 /**
  * @brief Точка входа в программу
@@ -16,14 +24,11 @@ double getCoordinate(const std::string reports = "");
 int main() {
     std::cout << "Введите координаты трёх точек:" << std::endl;
     
-    double x1 = getCoordinate("Введите x1:");
-    double y1 = getCoordinate("Введите y1:");
-    double x2 = getCoordinate("Введите x2:");
-    double y2 = getCoordinate("Введите y2:");
-    double x3 = getCoordinate("Введите x3:");
-    double y3 = getCoordinate("Введите y3:");
+    Point p1 = readPoint("A");
+    Point p2 = readPoint("B");
+    Point p3 = readPoint("C");
     
-    Triangle triangle(x1, y1, x2, y2, x3, y3);
+    Triangle triangle(p1, p2, p3);
     
     std::cout << "Периметр: " << triangle.getPerimeter() << std::endl;
     std::cout << "Площадь: " << triangle.getArea() << std::endl;
@@ -33,8 +38,8 @@ int main() {
     return 0;
 }
 
-double getCoordinate(const std::string report) {
-    std::cout << report << std::endl;
+double getCoordinate(const std::string& report) {
+    std::cout << report;
     double value = 0;
     std::cin >> value;
     if (std::cin.fail()) {
@@ -42,4 +47,11 @@ double getCoordinate(const std::string report) {
         exit(1);
     }
     return value;
+}
+
+Point readPoint(const std::string& name) {
+    std::cout << "Точка " << name << ":" << std::endl;
+    double x = getCoordinate("  x = ");
+    double y = getCoordinate("  y = ");
+    return Point(x, y);
 }
