@@ -1,64 +1,47 @@
 #pragma once
+#include "Point.h"
 
 /**
-* @brief Класс "Треугольник, заданный тремя точками"
+ * @brief Класс "Треугольник, заданный тремя точками"
  */
 class Triangle {
 private:
-    /**
-     * @brief Координаты первой точки
-     */
-    double x1, y1;
-    /**
-     * @brief Координаты второй точки
-     */
-    double x2, y2;
-    /**
-     * @brief Координаты третьей точки
-     */
-    double x3, y3;
-    
-    /**
-     * @brief Длины сторон треугольника
-     */
+    Point p1, p2, p3;
     double sideA, sideB, sideC;
 
     /**
-     * @brief Расчёт длины стороны между двумя точками
-     * @param x1,y1 координаты первой точки
-     * @param x2,y2 координаты второй точки
-     * @return длина стороны
+     * @brief Расчёт длин сторон треугольника
      */
-    double calculateSide(double x1, double y1, double x2, double y2) const;
+    void calculateSides();
 
 public:
     /**
      * @brief Конструктор
-     * @param x1,y1 координаты первой точки
-     * @param x2,y2 координаты второй точки
-     * @param x3,y3 координаты третьей точки
+     * @param point1 первая точка
+     * @param point2 вторая точка
+     * @param point3 третья точка
      */
-    Triangle(double x1, double y1, double x2, double y2, double x3, double y3);
+    Triangle(const Point& point1, const Point& point2, const Point& point3);
 
     /**
      * @brief Расчёт периметра треугольника
      * @return Рассчитанное значение
      */
     double getPerimeter() const;
-
+    
     /**
      * @brief Расчёт площади треугольника (формула Герона)
      * @return Рассчитанное значение
      */
     double getArea() const;
-
+    
     /**
      * @brief Расчёт радиуса вписанной окружности
      * @return Рассчитанное значение
      * @note r = 2S / P, где S - площадь, P - периметр
      */
     double getInscribedRadius() const;
-
+    
     /**
      * @brief Расчёт радиуса описанной окружности
      * @return Рассчитанное значение
