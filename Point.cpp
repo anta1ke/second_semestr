@@ -2,7 +2,7 @@
 #include <sstream>
 #include <stdexcept>
 
-Point::Point(const unsigned int x, const unsigned int y)
+Point::Point(const int x, const int y)
     : x(x), y(y)
 {
 }
@@ -14,12 +14,12 @@ std::string Point::ToString() const
     return ss.str();
 }
 
-unsigned int Point::GetX() const
+int Point::GetX() const
 {
     return x;
 }
 
-unsigned int Point::GetY() const
+int Point::GetY() const
 {
     return y;
 }
