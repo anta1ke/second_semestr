@@ -23,7 +23,7 @@ public:
      * @param x абсцисса
      * @param y ордината
      */
-    Point(const unsigned int x = 0, const unsigned int y = 0);
+    Point(const int x = 0, const int y = 0);
 
     /**
      * @brief Преобразует точку в строку
