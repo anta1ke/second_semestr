@@ -1,12 +1,17 @@
 #pragma once
 
+/**
+ * @brief Класс, представляющий точку на плоскости
+ */
 class Point {
-private:
-    double x, y;
-
 public:
-    Point(double x = 0, double y = 0);
-    double getX() const;
-    double getY() const;
-    double distanceTo(const Point& other) const;
+    double x; ///< Координата X
+    double y; ///< Координата Y
+
+    /**
+     * @brief Конструктор точки
+     * @param x - координата X (по умолчанию 0)
+     * @param y - координата Y (по умолчанию 0)
+     */
+    Point(double x = 0, double y = 0) : x(x), y(y) {}
 };
