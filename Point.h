@@ -77,18 +77,3 @@ public:
      * @return true если точки не равны
      */
     bool operator!=(const Point& other) const;
-
-    /**
-     * @brief оператор сложения точки и целого числа
-     * @param value целое число
-     * @return новая точка
-     */
-    Point operator+(const unsigned int value) const;
-
-    /**
-     * @brief оператор вычитания точки и целого числа
-     * @param value целое число
-     * @return новая точка
-     */
-    Point operator-(const unsigned int value) const;
-};
