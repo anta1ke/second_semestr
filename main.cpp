@@ -1,45 +1,31 @@
 #include <iostream>
-#include "Point.h"
 #include "Triangle.h"
 
 /**
  * @brief Считывает координату с клавиатуры
- * @param reports - строка информации
- * @return считанное значение
- * @note При ошибке ввода программа завершается
+ * @param report - подсказка для пользователя
  */
-double getCoordinate(const std::string& reports);
+double getCoordinate(const std::string& report = "");
 
-/**
- * @brief Считывает точку с клавиатуры
- * @param name - название точки
- * @return считанная точка
- */
-Point readPoint(const std::string& name);
-
-/**
- * @brief Точка входа в программу
- * @return 0, если программа выполнена корректно
- */
 int main() {
     std::cout << "Введите координаты трёх точек:" << std::endl;
-    
-    Point p1 = readPoint("A");
-    Point p2 = readPoint("B");
-    Point p3 = readPoint("C");
-    
+
+    Point p1(getCoordinate("Введите x1:"), getCoordinate("Введите y1:"));
+    Point p2(getCoordinate("Введите x2:"), getCoordinate("Введите y2:"));
+    Point p3(getCoordinate("Введите x3:"), getCoordinate("Введите y3:"));
+
     Triangle triangle(p1, p2, p3);
-    
-    std::cout << "Периметр: " << triangle.getPerimeter() << std::endl;
-    std::cout << "Площадь: " << triangle.getArea() << std::endl;
-    std::cout << "Радиус вписанной окружности: " << triangle.getInscribedRadius() << std::endl;
-    std::cout << "Радиус описанной окружности: " << triangle.getCircumscribedRadius() << std::endl;
-    
+
+    std::cout << "Периметр: "                    << triangle.getPerimeter()           << std::endl;
+    std::cout << "Площадь: "                     << triangle.getArea()                << std::endl;
+    std::cout << "Радиус вписанной окружности: "  << triangle.getInscribedRadius()     << std::endl;
+    std::cout << "Радиус описанной окружности: "  << triangle.getCircumscribedRadius() << std::endl;
+
     return 0;
 }
 
 double getCoordinate(const std::string& report) {
-    std::cout << report;
+    std::cout << report << std::endl;
     double value = 0;
     std::cin >> value;
     if (std::cin.fail()) {
@@ -47,11 +33,4 @@ double getCoordinate(const std::string& report) {
         exit(1);
     }
     return value;
-}
-
-Point readPoint(const std::string& name) {
-    std::cout << "Точка " << name << ":" << std::endl;
-    double x = getCoordinate("  x = ");
-    double y = getCoordinate("  y = ");
-    return Point(x, y);
 }
