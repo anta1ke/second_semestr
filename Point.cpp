@@ -50,15 +50,3 @@ bool Point::operator!=(const Point& other) const
 {
     return !(*this == other);
 }
-
-Point Point::operator+(const unsigned int value) const
-{
-    return Point(x + value, y + value);
-}
-
-Point Point::operator-(const unsigned int value) const
-{
-    if (x < value || y < value)
-        throw std::invalid_argument("Resulting coordinate would be negative.");
-    return Point(x - value, y - value);
-}
